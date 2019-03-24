@@ -1,0 +1,34 @@
+@import "colors-main.scss";
+
+.commento-footer {
+  margin: 36px 0px 12px 0px;
+  padding-right: 12px;
+
+  .commento-logo-container {
+    float: right;
+
+    .commento-logo {
+      border: none;
+      width: auto;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      border-radius: 3px;
+    }
+
+    .commento-logo-text::before {
+      content: "Powered by ";
+      font-weight: 400;
+    }
+
+    .commento-logo-text {
+      font-size: 13px;
+      color: $gray-7;
+      display: inline;
+      line-height: 24px;
+      position: relative;
+      font-weight: bold;
+    }
+  }
+}

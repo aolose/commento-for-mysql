@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0">
+    <script src="[[[.CdnPrefix]]]/js/jquery.js"></script>
+    <script src="[[[.CdnPrefix]]]/js/signup.js"></script>
+    <link rel="icon" href="[[[.CdnPrefix]]]/images/120x120.png">
+    <link rel="stylesheet" href="[[[.CdnPrefix]]]/css/auth.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:200,300,400,700" rel="stylesheet">
+    <title>Commento: Signup</title>
+  </head>
+
+  <div class="navbar">
+    <a href="[[[.Origin]]]/" class="navbar-item navbar-logo-text"><img src="[[[.CdnPrefix]]]/images/logo.svg" class="navbar-logo">Commento</a>
+    <a href="[[[.Origin]]]/login" class="navbar-item">Login</a>
+    <a href="[[[.Origin]]]/signup" class="navbar-item"><b>Signup</b></a>
+  </div>
+
+  <script>
+  window.onload = function() {
+    window.commento.loggedInRedirect();
+    window.commento.prefillEmail();
+  };
+  </script>
+
+  <div class="auth-form-container">
+    <div class="auth-form">
+      <div class="form-title">
+        Create an account
+      </div>
+
+      <div class="row">
+        <div class="label">Email Address</div>
+        <input class="input" type="text" name="email" id="email" placeholder="example@example.com">
+      </div>
+
+      <div class="row">
+        <div class="label">Full Name</div>
+        <input class="input" type="text" name="name" id="name" placeholder="Full Name">
+      </div>
+
+      <div class="row">
+        <div class="label">Password</div>
+        <input class="input" type="password" name="password" id="password" placeholder="">
+      </div>
+
+      <div class="row">
+        <div class="label">Confirm Password</div>
+        <input class="input" type="password" name="password2" id="password2" placeholder="">
+      </div>
+
+      <input type="hidden" name="plan" id="plan" value="">
+
+      <div class="err" id="err"></div>
+
+      <p class="cent">
+      </p>
+
+      <button id="signup-button" class="button" onclick="window.commento.signup()">Sign up</button>
+
+      <a class="link" href="[[[.Origin]]]/login">Already have an account? Login instead.</a>
+    </div>
+  </div>
+
+  [[[.Footer]]]
+</html>

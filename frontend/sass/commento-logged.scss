@@ -1,0 +1,45 @@
+@import "colors-main.scss";
+
+.commento-login {
+  width: 100%;
+
+  .commento-login-text {
+    text-align: right;
+    margin-right: 16px;
+    height: 38px;
+    color: $gray-6;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+  }
+}
+
+.commento-logged-container {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 16px;
+  position: relative;
+  height: 38px;
+
+  .commento-logout {
+    cursor: pointer;
+    position: absolute;
+    top: 6px;
+    right: 16px;
+    color: $gray-5;
+  }
+
+  .commento-logged-in-as {
+    position: relative;
+
+    .commento-name {
+      color: $gray-8;
+      border: none;
+      font-weight: bold;
+      position: absolute;
+      top: 6px;
+      left: 48px;
+      cursor: pointer;
+    }
+  }
+}

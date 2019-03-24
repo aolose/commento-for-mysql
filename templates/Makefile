@@ -1,0 +1,31 @@
+SHELL = bash
+
+BUILD_DIR                   = build
+DEVEL_BUILD_DIR             = $(BUILD_DIR)/devel
+PROD_BUILD_DIR              = $(BUILD_DIR)/prod
+
+TEMPLATES_SRC_DIR           = .
+TEMPLATES_SRC_FILES         = $(wildcard $(TEMPLATES_SRC_DIR)/*.txt)
+TEMPLATES_DEVEL_BUILD_DIR   = $(DEVEL_BUILD_DIR)/templates
+TEMPLATES_DEVEL_BUILD_FILES = $(patsubst $(TEMPLATES_SRC_DIR)/%, $(TEMPLATES_DEVEL_BUILD_DIR)/%, $(TEMPLATES_SRC_FILES))
+TEMPLATES_PROD_BUILD_DIR    = $(PROD_BUILD_DIR)/templates
+TEMPLATES_PROD_BUILD_FILES  = $(patsubst $(TEMPLATES_SRC_DIR)/%, $(TEMPLATES_PROD_BUILD_DIR)/%, $(TEMPLATES_SRC_FILES))
+
+devel: devel-templates
+
+prod: prod-templates
+
+clean:
+	rm -rf $(BUILD_DIR)
+
+devel-templates: $(TEMPLATES_DEVEL_BUILD_FILES)
+
+$(TEMPLATES_DEVEL_BUILD_FILES): $(TEMPLATES_DEVEL_BUILD_DIR)/%.txt: $(TEMPLATES_SRC_DIR)/%.txt
+	cp $^ $@;
+
+prod-templates: $(TEMPLATES_PROD_BUILD_FILES)
+
+$(TEMPLATES_PROD_BUILD_FILES): $(TEMPLATES_PROD_BUILD_DIR)/%.txt: $(TEMPLATES_SRC_DIR)/%.txt
+	cp $^ $@;
+
+$(shell mkdir -p $(TEMPLATES_DEVEL_BUILD_DIR) $(TEMPLATES_PROD_BUILD_DIR))

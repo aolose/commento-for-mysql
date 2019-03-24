@@ -1,0 +1,14 @@
+[Unit]
+Description=Commento daemon service
+After=network.target mysql.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/commento
+Environment=COMMENTO_ORIGIN=https://commento.example.com
+Environment=COMMENTO_PORT=8080
+Environment=DATABASE_URL=commento:123@/commento?charset=utf8&parseTime=True&loc=Local
+Environment=COMMENTO_STATIC=/usr/share/commento
+
+[Install]
+WantedBy=multi-user.target

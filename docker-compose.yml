@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  server:
+    image: registry.gitlab.com/commento/commento
+    ports:
+      - 8080:8080
+    environment:
+      COMMENTO_ORIGIN: http://commento.example.com:8080
+      COMMENTO_PORT: 8080
+      DATABASE_URL: commento:123@/commento?charset=utf8&parseTime=True&loc=Local
+    depends_on:
+      - db
+    networks:
+      - db_network
+  db:
+    image: database
+    environment:
+      DATABASE_DB: commento
+      DATABASE_USER: database
+      DATABASE_PASSWORD: database
+    networks:
+      - db_network
+    volumes:
+      - database_data_volume:/var/lib/commento_db/data
+
+networks:
+  db_network:
+
+volumes:
+  database_data_volume:

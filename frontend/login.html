@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0">
+    <script src="[[[.CdnPrefix]]]/js/jquery.js"></script>
+    <script src="[[[.CdnPrefix]]]/js/login.js"></script>
+    <link rel="icon" href="[[[.CdnPrefix]]]/images/120x120.png">
+    <link rel="stylesheet" href="[[[.CdnPrefix]]]/css/auth.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:200,300,400,700" rel="stylesheet">
+    <title>Commento: Login</title>
+  </head>
+
+  <div class="navbar">
+    <a href="[[[.Origin]]]/" class="navbar-item navbar-logo-text"><img src="[[[.CdnPrefix]]]/images/logo.svg" class="navbar-logo">Commento</a>
+    <a href="[[[.Origin]]]/login" class="navbar-item"><b>Login</b></a>
+    <a href="[[[.Origin]]]/signup" class="navbar-item">Signup</a>
+  </div>
+
+  <script>
+  window.onload = function() {
+    window.commento.loggedInRedirect();
+    window.commento.prefillEmail();
+    window.commento.displayMessages();
+  };
+  </script>
+
+  <div class="auth-form-container">
+    <div class="auth-form">
+      <div class="form-title">
+        Login to continue
+      </div>
+
+      <div class="row">
+        <div class="label">Email Address</div>
+        <input class="input" type="text" name="email" id="email" placeholder="example@example.com">
+      </div>
+
+      <div class="row">
+        <div class="label">Password</div>
+        <input class="input" type="password" name="password" id="password" placeholder="">
+      </div>
+
+      <div class="err" id="err"></div>
+      <div class="msg" id="msg"></div>
+
+      <button id="button" class="button" onclick="window.commento.login()">Login</button>
+
+      <a class="link" href="[[[.Origin]]]/forgot">Trouble logging in? Reset your password.</a>
+      <a class="link" href="[[[.Origin]]]/signup">Don't have an account yet? Sign up.</a>
+    </div>
+  </div>
+
+  [[[.Footer]]]
+</html>
